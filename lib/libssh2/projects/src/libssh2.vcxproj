@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1F8BEC10-1F02-3EC6-A421-7460CEFA614C}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>libssh2</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)output\$(Configuration)\$(PlatformTarget)\msvc\$(TargetName)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir).build\$(Configuration)\$(PlatformTarget)\msvc\$(TargetName)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libssh2</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libssh2</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)output\$(Configuration)\$(PlatformTarget)\msvc\$(TargetName)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir).build\$(Configuration)\$(PlatformTarget)\msvc\$(TargetName)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libssh2</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libssh2</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)output\$(Configuration)\$(PlatformTarget)\msvc\$(TargetName)\</OutDir>
+    <IntDir>$(SolutionDir).build\$(Configuration)\$(PlatformTarget)\msvc\$(TargetName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)output\$(Configuration)\$(PlatformTarget)\msvc\$(TargetName)\</OutDir>
+    <IntDir>$(SolutionDir).build\$(Configuration)\$(PlatformTarget)\msvc\$(TargetName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;LIBSSH2_WINCNG;LIBSSH2_DH_GEX_NEW=1;LIBSSH2_WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;LIBSSH2_CLEAR_MEMORY;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;LIBSSH2_WINCNG;LIBSSH2_DH_GEX_NEW=1;LIBSSH2_WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;LIBSSH2_CLEAR_MEMORY;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;LIBSSH2_WINCNG;LIBSSH2_DH_GEX_NEW=1;LIBSSH2_WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;LIBSSH2_CLEAR_MEMORY;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;LIBSSH2_WINCNG;LIBSSH2_DH_GEX_NEW=1;LIBSSH2_WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;LIBSSH2_CLEAR_MEMORY;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBSSH2_WINCNG;LIBSSH2_DH_GEX_NEW=1;LIBSSH2_WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;LIBSSH2_CLEAR_MEMORY;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBSSH2_WINCNG;LIBSSH2_DH_GEX_NEW=1;LIBSSH2_WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;LIBSSH2_CLEAR_MEMORY;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBSSH2_WINCNG;LIBSSH2_DH_GEX_NEW=1;LIBSSH2_WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;LIBSSH2_CLEAR_MEMORY;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBSSH2_WINCNG;LIBSSH2_DH_GEX_NEW=1;LIBSSH2_WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;LIBSSH2_CLEAR_MEMORY;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>A:\Development\Repos\Raid-BLT\lib\libssh2\include;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule A:/Development/Repos/Raid-BLT/lib/libssh2/src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule A:/Development/Repos/Raid-BLT/lib/libssh2/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+A:\Programme\CMake\bin\cmake.exe -SA:/Development/Repos/Raid-BLT/lib/libssh2 -BA:/Development/Repos/Raid-BLT/lib/libssh2/projects --check-stamp-file A:/Development/Repos/Raid-BLT/lib/libssh2/projects/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+A:\Programme\CMake\bin\cmake.exe -SA:/Development/Repos/Raid-BLT/lib/libssh2 -BA:/Development/Repos/Raid-BLT/lib/libssh2/projects --check-stamp-file A:/Development/Repos/Raid-BLT/lib/libssh2/projects/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">A:/Development/Repos/Raid-BLT/lib/libssh2/src/CMakeLists.txt;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\CheckFunctionExistsMayNeedLibrary.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\CheckNonblockingSocketSupport.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\FindLibgcrypt.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\SocketLibraries.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_BCRYPT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_NTDEF_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_NTSTATUS_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_STDLIB_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SELECT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SOCKET_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TIME_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UN_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_UNISTD_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINCRYPT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckTypeSize\LONGLONG.c;A:\Development\Repos\Raid-BLT\lib\libssh2\src\CMakeLists.txt;A:\Development\Repos\Raid-BLT\lib\libssh2\src\libssh2.pc.in;A:\Development\Repos\Raid-BLT\lib\libssh2\src\libssh2_config_cmake.h.in;A:\Programme\CMake\share\cmake-3.13\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;A:\Programme\CMake\share\cmake-3.13\Modules\CMakeConfigurableFile.in;A:\Programme\CMake\share\cmake-3.13\Modules\CMakePackageConfigHelpers.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckCSourceCompiles.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckFunctionExists.c;A:\Programme\CMake\share\cmake-3.13\Modules\CheckFunctionExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFile.c.in;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFile.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFileCXX.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFiles.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckLibraryExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckSymbolExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckTypeSize.c.in;A:\Programme\CMake\share\cmake-3.13\Modules\CheckTypeSize.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindOpenSSL.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindPackageHandleStandardArgs.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindPackageMessage.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\GNUInstallDirs.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\SelectLibraryConfigurations.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\WriteBasicConfigVersionFile.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">A:/Development/Repos/Raid-BLT/lib/libssh2/src/CMakeLists.txt;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\CheckFunctionExistsMayNeedLibrary.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\CheckNonblockingSocketSupport.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\FindLibgcrypt.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\SocketLibraries.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_BCRYPT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_NTDEF_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_NTSTATUS_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_STDLIB_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SELECT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SOCKET_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TIME_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UN_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_UNISTD_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINCRYPT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckTypeSize\LONGLONG.c;A:\Development\Repos\Raid-BLT\lib\libssh2\src\CMakeLists.txt;A:\Development\Repos\Raid-BLT\lib\libssh2\src\libssh2.pc.in;A:\Development\Repos\Raid-BLT\lib\libssh2\src\libssh2_config_cmake.h.in;A:\Programme\CMake\share\cmake-3.13\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;A:\Programme\CMake\share\cmake-3.13\Modules\CMakeConfigurableFile.in;A:\Programme\CMake\share\cmake-3.13\Modules\CMakePackageConfigHelpers.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckCSourceCompiles.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckFunctionExists.c;A:\Programme\CMake\share\cmake-3.13\Modules\CheckFunctionExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFile.c.in;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFile.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFileCXX.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFiles.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckLibraryExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckSymbolExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckTypeSize.c.in;A:\Programme\CMake\share\cmake-3.13\Modules\CheckTypeSize.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindOpenSSL.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindPackageHandleStandardArgs.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindPackageMessage.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\GNUInstallDirs.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\SelectLibraryConfigurations.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\WriteBasicConfigVersionFile.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule A:/Development/Repos/Raid-BLT/lib/libssh2/src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule A:/Development/Repos/Raid-BLT/lib/libssh2/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+A:\Programme\CMake\bin\cmake.exe -SA:/Development/Repos/Raid-BLT/lib/libssh2 -BA:/Development/Repos/Raid-BLT/lib/libssh2/projects --check-stamp-file A:/Development/Repos/Raid-BLT/lib/libssh2/projects/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+A:\Programme\CMake\bin\cmake.exe -SA:/Development/Repos/Raid-BLT/lib/libssh2 -BA:/Development/Repos/Raid-BLT/lib/libssh2/projects --check-stamp-file A:/Development/Repos/Raid-BLT/lib/libssh2/projects/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">A:/Development/Repos/Raid-BLT/lib/libssh2/src/CMakeLists.txt;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\CheckFunctionExistsMayNeedLibrary.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\CheckNonblockingSocketSupport.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\FindLibgcrypt.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\SocketLibraries.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_BCRYPT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_NTDEF_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_NTSTATUS_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_STDLIB_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SELECT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SOCKET_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TIME_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UN_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_UNISTD_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINCRYPT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckTypeSize\LONGLONG.c;A:\Development\Repos\Raid-BLT\lib\libssh2\src\CMakeLists.txt;A:\Development\Repos\Raid-BLT\lib\libssh2\src\libssh2.pc.in;A:\Development\Repos\Raid-BLT\lib\libssh2\src\libssh2_config_cmake.h.in;A:\Programme\CMake\share\cmake-3.13\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;A:\Programme\CMake\share\cmake-3.13\Modules\CMakeConfigurableFile.in;A:\Programme\CMake\share\cmake-3.13\Modules\CMakePackageConfigHelpers.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckCSourceCompiles.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckFunctionExists.c;A:\Programme\CMake\share\cmake-3.13\Modules\CheckFunctionExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFile.c.in;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFile.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFileCXX.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFiles.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckLibraryExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckSymbolExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckTypeSize.c.in;A:\Programme\CMake\share\cmake-3.13\Modules\CheckTypeSize.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindOpenSSL.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindPackageHandleStandardArgs.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindPackageMessage.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\GNUInstallDirs.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\SelectLibraryConfigurations.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\WriteBasicConfigVersionFile.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">A:/Development/Repos/Raid-BLT/lib/libssh2/src/CMakeLists.txt;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\CheckFunctionExistsMayNeedLibrary.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\CheckNonblockingSocketSupport.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\FindLibgcrypt.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\cmake\SocketLibraries.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_BCRYPT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_NTDEF_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_NTSTATUS_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_STDLIB_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SELECT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SOCKET_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TIME_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UN_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_UNISTD_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINCRYPT_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c;A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\CheckTypeSize\LONGLONG.c;A:\Development\Repos\Raid-BLT\lib\libssh2\src\CMakeLists.txt;A:\Development\Repos\Raid-BLT\lib\libssh2\src\libssh2.pc.in;A:\Development\Repos\Raid-BLT\lib\libssh2\src\libssh2_config_cmake.h.in;A:\Programme\CMake\share\cmake-3.13\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;A:\Programme\CMake\share\cmake-3.13\Modules\CMakeConfigurableFile.in;A:\Programme\CMake\share\cmake-3.13\Modules\CMakePackageConfigHelpers.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckCSourceCompiles.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckFunctionExists.c;A:\Programme\CMake\share\cmake-3.13\Modules\CheckFunctionExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFile.c.in;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFile.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFileCXX.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckIncludeFiles.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckLibraryExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckSymbolExists.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\CheckTypeSize.c.in;A:\Programme\CMake\share\cmake-3.13\Modules\CheckTypeSize.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindOpenSSL.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindPackageHandleStandardArgs.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\FindPackageMessage.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\GNUInstallDirs.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\SelectLibraryConfigurations.cmake;A:\Programme\CMake\share\cmake-3.13\Modules\WriteBasicConfigVersionFile.cmake;A:\Development\Repos\Raid-BLT\lib\libssh2\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">A:\Development\Repos\Raid-BLT\lib\libssh2\projects\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\wincng.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\wincng.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\agent.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\blf.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\bcrypt_pbkdf.c" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\blowfish.c" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\channel.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\channel.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\comp.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\comp.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\crypt.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\crypto.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\global.c" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\hostkey.c" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\keepalive.c" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\kex.c" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\knownhost.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\libssh2_priv.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\mac.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\mac.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\misc.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\misc.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\packet.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\packet.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\pem.c" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\publickey.c" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\scp.c" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\session.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\session.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\sftp.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\sftp.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\transport.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\transport.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\userauth.c" />
+    <ClInclude Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\userauth.h" />
+    <ClCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\src\version.c" />
+    <ResourceCompile Include="A:\Development\Repos\Raid-BLT\lib\libssh2\win32\libssh2.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="A:\Development\Repos\Raid-BLT\lib\libssh2\projects\ZERO_CHECK.vcxproj">
+      <Project>{450FFEE8-456A-3367-9320-B48F2D61A1D7}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="A:\Development\Repos\Raid-BLT\lib\libssh2\projects\CMakeFiles\3330afe299236425714af8f7cef1f9b2\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{B47E4E78-F942-30B0-9C59-69BCF2869171}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
