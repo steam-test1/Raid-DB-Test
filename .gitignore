@@ -55,6 +55,9 @@ ipch/
 *.vspx
 *.sap
 
+# VS Solution
+*.vcxproj.user
+
 # Library includes (excluding detours)
 incl/curl/*
 incl/openssl/*
