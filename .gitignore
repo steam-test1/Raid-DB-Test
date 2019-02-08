@@ -78,3 +78,5 @@ lib/ssleay32.*
 lib/zlib.*
 /proj/.build/Debug/x64/msvc
 /proj/output/Debug/x64/msvc
+/proj/.build/Release/x64/msvc
+/proj/output/Release/x64/msvc
