@@ -41,9 +41,9 @@ CConsole::CConsole() : m_OwnConsole(false) {
 	m_OldStdout = *stdout;
 
 	*stdin = *_fdopen(in, "r");
-	setvbuf(stdin, nullptr, _IONBF, 0); // redirect bugfix
+	setvbuf(stdin, nullptr, _IONBF, 0);
 	*stdout = *_fdopen(out, "w");
-	setvbuf(stdout, nullptr, _IONBF, 0); // redirect bugfix
+	setvbuf(stdout, nullptr, _IONBF, 0);
 
 	// Redirect std::cout to the same location as stdout, otherwise you it won't appear on the console.
 	std::ios::sync_with_stdio();
