@@ -7,22 +7,22 @@
 
 namespace
 {
-class outbuf : public std::streambuf
-{
-public:
-	outbuf()
+	class outbuf : public std::streambuf
 	{
-		setp(0, 0);
-	}
+	public:
+		outbuf()
+		{
+			setp(0, 0);
+		}
 
-	virtual int_type overflow(int_type c = traits_type::eof()) override
-	{
-		return fputc(c, stdout) == EOF ? traits_type::eof() : c;
-	}
-};
+		virtual int_type overflow(int_type c = traits_type::eof()) override
+		{
+			return fputc(c, stdout) == EOF ? traits_type::eof() : c;
+		}
+	};
 
-outbuf obuf;
-std::streambuf *sb = nullptr;
+	outbuf obuf;
+	std::streambuf *sb = nullptr;
 }
 static BOOL WINAPI MyConsoleCtrlHandler(DWORD dwCtrlEvent) { return dwCtrlEvent == CTRL_C_EVENT; }
 
