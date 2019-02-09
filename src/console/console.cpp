@@ -55,7 +55,7 @@ CConsole::~CConsole() {
 		fclose(stdin);
 		*stdout = m_OldStdout;
 		*stdin = m_OldStdin;
-		//std::cout.rdbuf(sb);
+		//std::cout.rdbuf(sb); // removed for exit crash fix
 		std::ios::sync_with_stdio(); // exit crash fix
 		SetConsoleCtrlHandler(MyConsoleCtrlHandler, FALSE);
 		FreeConsole();
