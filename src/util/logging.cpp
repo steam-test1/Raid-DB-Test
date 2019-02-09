@@ -96,6 +96,8 @@ private:
 	std::ofstream mOut;
 };
 
+static LoggerImpl* s_logger = nullptr; // exit crash fix
+
 void LoggerImpl::setForceFlush(bool forceFlush)
 {
 	std::ostream& (*forceFlusher)(std::ostream&) = &std::endl;
@@ -149,13 +151,17 @@ void LoggerImpl::log(const Message_t& msg)
 
 Logger& Logger::Instance()
 {
-	static LoggerImpl logger("mods/logs/" + GetDateString() + "_log.txt");
-	return logger;
+	if (s_logger == nullptr) // exit crash fix
+		s_logger = new LoggerImpl("mods/logs/" + GetDateString() + "_log.txt"); // exit crash fix
+
+	return *s_logger;
 }
 
 void Logger::Close()
 {
 	static_cast<LoggerImpl&>(Instance()).close();
+	delete s_logger; // exit crash fix
+	s_logger = nullptr; // exit crash fix
 }
 
 void Logger::setForceFlush(bool forceFlush)

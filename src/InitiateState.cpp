@@ -1065,8 +1065,9 @@ namespace pd2hook
 		if (newStateDetour) delete newStateDetour;
 		if (luaCallDetour) delete luaCallDetour;
 		if (luaCloseDetour) delete luaCloseDetour;
-		if (gbl_mConsole) delete gbl_mConsole;
 
 		UninitializeMinHook();
+
+		if (gbl_mConsole) delete gbl_mConsole;
 	}
 }
