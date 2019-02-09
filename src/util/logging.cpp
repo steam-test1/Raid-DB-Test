@@ -151,8 +151,9 @@ void LoggerImpl::log(const Message_t& msg)
 
 Logger& Logger::Instance()
 {
-	if (s_logger == nullptr) // exit crash fix
-		s_logger = new LoggerImpl("mods/logs/" + GetDateString() + "_log.txt"); // exit crash fix
+	// exit crash fix
+	if (s_logger == nullptr)
+		s_logger = new LoggerImpl("mods/logs/" + GetDateString() + "_log.txt");
 
 	return *s_logger;
 }
