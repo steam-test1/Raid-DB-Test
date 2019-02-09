@@ -57,6 +57,7 @@ ipch/
 
 # VS Solution
 *.vcxproj.user
+*.vcxproj.filters
 
 # Library includes (excluding detours)
 incl/curl/*
