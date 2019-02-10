@@ -131,6 +131,7 @@ void LoggerImpl::close()
 		return;
 	}
 
+	mOut.flush(); // buffer write fix
 	mOut.close();
 	mFilename.clear();
 	mIsOpen = false;
