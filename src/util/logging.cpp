@@ -147,6 +147,7 @@ void LoggerImpl::log(const Message_t& msg)
 
 	mOut << msg << mEndl;
 	std::cout << msg << mEndl;
+	mOut.flush(); // buffer write fix
 }
 }
 
