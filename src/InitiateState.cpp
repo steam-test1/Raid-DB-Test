@@ -1068,5 +1068,8 @@ namespace pd2hook
 		if (gbl_mConsole) delete gbl_mConsole;
 
 		UninitializeMinHook();
+
+		HTTPManager::Destroy(); // exit crash fix
+		Logging::Logger::Close(); // exit crash fix
 	}
 }
