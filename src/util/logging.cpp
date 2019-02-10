@@ -131,6 +131,7 @@ void LoggerImpl::close()
 		return;
 	}
 
+	mOut.flush(); // buffer write fix
 	mOut.close();
 	mFilename.clear();
 	mIsOpen = false;
@@ -146,6 +147,7 @@ void LoggerImpl::log(const Message_t& msg)
 
 	mOut << msg << mEndl;
 	std::cout << msg << mEndl;
+	mOut.flush(); // buffer write fix
 }
 }
 
