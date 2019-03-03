@@ -46,47 +46,47 @@ namespace pd2hook
 	typedef void(*lua_Hook) (lua_State* L, lua_Debug* ar);
 
 	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_call, void, "\x48\x63\xC2\x48\x8B\x51\x28\x4C\x8B\xD1\x48\xC1\xE0\x03\x4C\x8B", "xxxxxxxxxxxxxxxx", 0, lua_State*, int, int)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_pcall, int, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x48\x8B\x59\x10\x41\x8B\xF0\x4C\x63", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int, int, int)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_gettop, int, "\x48\x8B\x41\x28\x48\x2B\x41\x20\x48\xC1\xF8\x03\xC3", "xxxxxxxxxxxxx", 0, lua_State*)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_settop, void, "\x40\x53\x48\x83\xEC\x20\x48\x8B\xD9\x85\xD2\x78\x7A\x4C\x8B\x41", "xxxxxxxxxxxxxxxx", 0, lua_State*, int)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_toboolean, int, "\x48\x83\xEC\x28\xE8\x00\x00\x00\x00\x48\x8B\x08\x33\xC0\x48\xC1", "xxxxx????xxxxxxx", 0, lua_State*, int)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_tointeger, ptrdiff_t, "\x48\x83\xEC\x28\xE8\x00\x00\x00\x00\x48\x8B\x10\x48\x8B\xCA\x48\xC1\xF9\x2F\x83\xF9\xF2\x73\x0E", "xxxxx????xxxxxxxxxxxxxxx", 0, lua_State*, int)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_tonumber, lua_Number, "\x48\x83\xEC\x28\xE8\x00\x00\x00\x00\x48\x8B\x10\x48\x8B\xCA\x48\xC1\xF9\x2F\x83\xF9\xF2\x77\x09", "xxxxx????xxxxxxxxxxxxxxx", 0, lua_State*, int)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_tolstring, const char*, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x49\x8B\xF8\x8B\xDA\x48\x8B\xF1\xE8", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int, size_t*)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_objlen, size_t, "\x40\x53\x48\x83\xEC\x20\x4C\x8B\xD1\xE8\x00\x00\x00\x00\x48\x8B", "xxxxxxxxxx????xx", 0, lua_State*, int)
-		// This is actually luaL_loadfilex() (as per Lua 5.2) now. The new parameter corresponds to mode, and specifying NULL causes Lua
-		// to default to "bt", i.e. 'binary and text'
-		// https://www.lua.org/manual/5.2/manual.html#luaL_loadfilex
-		// https://www.lua.org/manual/5.2/manual.html#pdf-load
-		CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_loadfilex, int, "\x48\x89\x5C\x24\x20\x55\x56\x57\x48\x81\xEC\x50\x02\x00\x00\x48\x8B", "xxxxxxxxxxxxxxxxx", 0, lua_State*, const char*, const char*)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_loadstring, int, "\x48\x83\xEC\x48\x48\x89\x54\x24\x30\x48\x83\xC8\xFF\x0F\x1F\x00", "xxxxxxxxxxxxxxxx", 0, lua_State*, const char*)
-		//CREATE_CALLABLE_SIGNATURE(lua_load, int, "\x8B\x4C\x24\x10\x33\xD2\x83\xEC\x18\x3B\xCA", "xxxxxxxxxxx", 0, lua_State*, lua_Reader, void*, const char*)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_getfield, void, "\x48\x89\x5C\x24\x10\x57\x48\x83\xEC\x20\x4D\x8B\xD0\x48\x8B\xD9", "xxxxxxxxxxxxxxxx", 0, lua_State*, int, const char*)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_setfield, void, "\x48\x89\x5C\x24\x08\x57\x48\x83\xEC\x20\x4D\x8B\xD0\x48\x8B\xD9", "xxxxxxxxxxxxxxxx", 0, lua_State*, int, const char*)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_createtable, void, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x4C\x8B\x49\x10\x41\x8B\xF8\x8B\xF2", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int, int)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_insert, void, "\x4C\x8B\xC9\x85\xD2\x7E\x24\x8D\x42\xFF\x48\x63\xD0\x48\x8B\x41", "xxxxxxxxxxxxxxxx", 0, lua_State*, int)
-		//CREATE_NORMAL_CALLABLE_SIGNATURE(lua_replace, void, "\x56\x57\x8B\x7C\x24\x10\x81\xFF\xEE\xD8\xFF\xFF\x75\x16\x8B\x4C\x24\x0C\x5F\x8B\x41\x14\x8D\x71\x14\x8B\x40\xF8\x83\x06\xF8\x89", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_remove, void, "\x4C\x8B\xC1\x85\xD2\x7E\x23\x8D\x42\xFF\x48\x63\xD0\x48\x8B\x41\x20\x48\x8B\x49\x28\x48\x8D\x04", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_newstate, lua_State*, "\x48\x89\x5C\x24\x08\x48\x89\x6C\x24\x10\x48\x89\x74\x24\x18\x57\x48\x83\xEC\x20\x48\x8B\xF2\x48\x8B\xE9\x41\xB9\x70\x0B\x00\x00", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_Alloc, void*)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_close, void, "\x48\x89\x5C\x24\x08\x48\x89\x6C\x24\x10\x48\x89\x74\x24\x18\x57\x48\x83\xEC\x20\x48\x8B\x79\x10\x48\x8B\xB7\xC8\x00\x00\x00\x48", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_pcall, int, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x48\x8B\x59\x10\x41\x8B\xF0\x4C\x63", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int, int, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_gettop, int, "\x48\x8B\x41\x28\x48\x2B\x41\x20\x48\xC1\xF8\x03\xC3", "xxxxxxxxxxxxx", 0, lua_State*)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_settop, void, "\x40\x53\x48\x83\xEC\x20\x48\x8B\xD9\x85\xD2\x78\x7A\x4C\x8B\x41", "xxxxxxxxxxxxxxxx", 0, lua_State*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_toboolean, int, "\x48\x83\xEC\x28\xE8\x00\x00\x00\x00\x48\x8B\x08\x33\xC0\x48\xC1", "xxxxx????xxxxxxx", 0, lua_State*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_tointeger, ptrdiff_t, "\x48\x83\xEC\x28\xE8\x00\x00\x00\x00\x48\x8B\x10\x48\x8B\xCA\x48\xC1\xF9\x2F\x83\xF9\xF2\x73\x0E", "xxxxx????xxxxxxxxxxxxxxx", 0, lua_State*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_tonumber, lua_Number, "\x48\x83\xEC\x28\xE8\x00\x00\x00\x00\x48\x8B\x10\x48\x8B\xCA\x48\xC1\xF9\x2F\x83\xF9\xF2\x77\x09", "xxxxx????xxxxxxxxxxxxxxx", 0, lua_State*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_tolstring, const char*, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x49\x8B\xF8\x8B\xDA\x48\x8B\xF1\xE8", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int, size_t*)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_objlen, size_t, "\x40\x53\x48\x83\xEC\x20\x4C\x8B\xD1\xE8\x00\x00\x00\x00\x48\x8B", "xxxxxxxxxx????xx", 0, lua_State*, int)
+	// This is actually luaL_loadfilex() (as per Lua 5.2) now. The new parameter corresponds to mode, and specifying NULL causes Lua
+	// to default to "bt", i.e. 'binary and text'
+	// https://www.lua.org/manual/5.2/manual.html#luaL_loadfilex
+	// https://www.lua.org/manual/5.2/manual.html#pdf-load
+	CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_loadfilex, int, "\x48\x89\x5C\x24\x20\x55\x56\x57\x48\x81\xEC\x50\x02\x00\x00\x48\x8B", "xxxxxxxxxxxxxxxxx", 0, lua_State*, const char*, const char*)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_loadstring, int, "\x48\x83\xEC\x48\x48\x89\x54\x24\x30\x48\x83\xC8\xFF\x0F\x1F\x00", "xxxxxxxxxxxxxxxx", 0, lua_State*, const char*)
+	//CREATE_CALLABLE_SIGNATURE(lua_load, int, "\x8B\x4C\x24\x10\x33\xD2\x83\xEC\x18\x3B\xCA", "xxxxxxxxxxx", 0, lua_State*, lua_Reader, void*, const char*)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_getfield, void, "\x48\x89\x5C\x24\x10\x57\x48\x83\xEC\x20\x4D\x8B\xD0\x48\x8B\xD9", "xxxxxxxxxxxxxxxx", 0, lua_State*, int, const char*)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_setfield, void, "\x48\x89\x5C\x24\x08\x57\x48\x83\xEC\x20\x4D\x8B\xD0\x48\x8B\xD9", "xxxxxxxxxxxxxxxx", 0, lua_State*, int, const char*)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_createtable, void, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x4C\x8B\x49\x10\x41\x8B\xF8\x8B\xF2", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_insert, void, "\x4C\x8B\xC9\x85\xD2\x7E\x24\x8D\x42\xFF\x48\x63\xD0\x48\x8B\x41", "xxxxxxxxxxxxxxxx", 0, lua_State*, int)
+	//CREATE_NORMAL_CALLABLE_SIGNATURE(lua_replace, void, "\x56\x57\x8B\x7C\x24\x10\x81\xFF\xEE\xD8\xFF\xFF\x75\x16\x8B\x4C\x24\x0C\x5F\x8B\x41\x14\x8D\x71\x14\x8B\x40\xF8\x83\x06\xF8\x89", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_remove, void, "\x4C\x8B\xC1\x85\xD2\x7E\x23\x8D\x42\xFF\x48\x63\xD0\x48\x8B\x41\x20\x48\x8B\x49\x28\x48\x8D\x04", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_newstate, lua_State*, "\x48\x89\x5C\x24\x08\x48\x89\x6C\x24\x10\x48\x89\x74\x24\x18\x57\x48\x83\xEC\x20\x48\x8B\xF2\x48\x8B\xE9\x41\xB9\x70\x0B\x00\x00", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_Alloc, void*)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_close, void, "\x48\x89\x5C\x24\x08\x48\x89\x6C\x24\x10\x48\x89\x74\x24\x18\x57\x48\x83\xEC\x20\x48\x8B\x79\x10\x48\x8B\xB7\xC8\x00\x00\x00\x48", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*)
 
-		//CREATE_CALLABLE_SIGNATURE(lua_rawset, void, "\x51\x53\x55\x56\x57\x8B\xF1\xE8\x00\x00\x00\x00", "xxxxxxxx????", 0, lua_State*, int)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_settable, void, "\x40\x53\x48\x83\xEC\x20\x48\x8B\xD9\xE8\x00\x00\x00\x00\x4C\x8B\x43\x28\x49\x83\xE8\x10\x48\x8B", "xxxxxxxxxx????xxxxxxxxxx", 0, lua_State*, int)
+	//CREATE_CALLABLE_SIGNATURE(lua_rawset, void, "\x51\x53\x55\x56\x57\x8B\xF1\xE8\x00\x00\x00\x00", "xxxxxxxx????", 0, lua_State*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_settable, void, "\x40\x53\x48\x83\xEC\x20\x48\x8B\xD9\xE8\x00\x00\x00\x00\x4C\x8B\x43\x28\x49\x83\xE8\x10\x48\x8B", "xxxxxxxxxx????xxxxxxxxxx", 0, lua_State*, int)
 
-		//CREATE_CALLABLE_SIGNATURE(lua_pushnumber, void, "\x8B\x44\x24\x04\x8B\x48\x08\xF3\x0F\x10\x44\x24\x08", "xxxxxxxxxxxxx", 0, lua_State*, double)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_pushinteger, void, "\x48\x8B\x41\x28\x0F\x57\xC0\xF2\x48\x0F\x2A\xC2\xF2\x0F\x11\x00", "xxxxxxxxxxxxxxxx", 0, lua_State*, ptrdiff_t)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_pushboolean, void, "\x33\xC0\x85\xD2\x0F\x95\xC0\xFF\xC0\x48\x63\xD0\x48\x8B\x41\x28", "xxxxxxxxxxxxxxxx", 0, lua_State*, bool)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_pushcclosure, void, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x4C\x8B\x49\x10\x49\x63\xF8\x48\x8B", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, lua_CFunction, int);
+	//CREATE_CALLABLE_SIGNATURE(lua_pushnumber, void, "\x8B\x44\x24\x04\x8B\x48\x08\xF3\x0F\x10\x44\x24\x08", "xxxxxxxxxxxxx", 0, lua_State*, double)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_pushinteger, void, "\x48\x8B\x41\x28\x0F\x57\xC0\xF2\x48\x0F\x2A\xC2\xF2\x0F\x11\x00", "xxxxxxxxxxxxxxxx", 0, lua_State*, ptrdiff_t)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_pushboolean, void, "\x33\xC0\x85\xD2\x0F\x95\xC0\xFF\xC0\x48\x63\xD0\x48\x8B\x41\x28", "xxxxxxxxxxxxxxxx", 0, lua_State*, bool)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_pushcclosure, void, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x4C\x8B\x49\x10\x49\x63\xF8\x48\x8B", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, lua_CFunction, int);
 	// lua_pushstring()'s signature was found before lua_pushlstring()'s, so I'm leaving it here now since it's valid anyway
 	// It was used as a quick and dirty - and broken - workaround since most lua_pushlstring() calls are inlined, but it ended up
 	// breaking HTTP downloads of zip archives due to its sensitivity to premature null characters
 	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_pushlstring, void, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x4C\x8B\x49\x10\x49\x8B\xF8\x48\x8B", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, const char*, size_t)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_pushstring, void, "\x48\x89\x5C\x24\x08\x57\x48\x83\xEC\x20\x48\x8B\xFA\x48\x8B\xD9\x48\x85\xD2\x75\x0D\x48\x8B\x41", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, const char*)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(lua_checkstack, int, "\x40\x53\x48\x83\xEC\x20\x48\x8B\xD9\x81\xFA\x40\x1F\x00\x00\x7F", "xxxxxxxxxxxxxxxx", 0, lua_State*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_pushstring, void, "\x48\x89\x5C\x24\x08\x57\x48\x83\xEC\x20\x48\x8B\xFA\x48\x8B\xD9\x48\x85\xD2\x75\x0D\x48\x8B\x41", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, const char*)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_checkstack, int, "\x40\x53\x48\x83\xEC\x20\x48\x8B\xD9\x81\xFA\x40\x1F\x00\x00\x7F", "xxxxxxxxxxxxxxxx", 0, lua_State*, int)
 
-		// luaI_openlib() is really luaL_openlib(), see lauxlib.h in Lua 5.1's source code
-		CREATE_NORMAL_CALLABLE_SIGNATURE(luaI_openlib, void, "\x48\x89\x5C\x24\x18\x55\x56\x41\x56\x48\x83\xEC\x20\x48\x8B\x41", "xxxxxxxxxxxxxxxx", 0, lua_State*, const char*, const luaL_Reg*, int)
-		CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_ref, int, "\x48\x89\x5C\x24\x20\x57\x48\x83\xEC\x20\x8D\x82\x0F\x27\x00\x00", "xxxxxxxxxxxxxxxx", 0, lua_State*, int);
+	// luaI_openlib() is really luaL_openlib(), see lauxlib.h in Lua 5.1's source code
+	CREATE_NORMAL_CALLABLE_SIGNATURE(luaI_openlib, void, "\x48\x89\x5C\x24\x18\x55\x56\x41\x56\x48\x83\xEC\x20\x48\x8B\x41", "xxxxxxxxxxxxxxxx", 0, lua_State*, const char*, const luaL_Reg*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_ref, int, "\x48\x89\x5C\x24\x20\x57\x48\x83\xEC\x20\x8D\x82\x0F\x27\x00\x00", "xxxxxxxxxxxxxxxx", 0, lua_State*, int);
 	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_rawgeti, void, "\x40\x53\x48\x83\xEC\x20\x4D\x63\xD0\x48\x8B\xD9\xE8\x00\x00\x00\x00\x48\x8B\x08\x48\xBA\xFF\xFF", "xxxxxxxxxxxxx????xxxxxxx", 0, lua_State*, int, int);
 	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_rawseti, void, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x4D\x63\xD0\x48\x8B\xD9\xE8", "xxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int, int);
 	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_type, int, "\x48\x83\xEC\x28\x4C\x8B\xD1\xE8\x00\x00\x00\x00\x48\x8B\x08\x4C", "xxxxxxxx????xxxx", 0, lua_State*, int);
@@ -94,35 +94,35 @@ namespace pd2hook
 	CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_unref, void, "\x45\x85\xC0\x0F\x88\x00\x00\x00\x00\x48\x89\x5C\x24\x08\x48\x89", "xxxxx????xxxxxxx", 0, lua_State*, int, int);
 	// Replacing the now-extensively-inlined do_game_update() hook with one applied on Application::update() instead
 	CREATE_CALLABLE_CLASS_SIGNATURE(application_update, void*, "\x48\x83\xEC\x28\x8B\x05\x00\x00\x00\x00\xA8\x01\x0F\x85", "xxxxxx????xxxx", 0)
-		// Possibly dsl::LuaInterface::newstate() rather than luaL_newstate()
-		CREATE_CALLABLE_CLASS_SIGNATURE(luaL_newstate, int, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x41\x0F\xB6\xF8\x0F\xB6\xF2\x48\x8B", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, char, char, int)
+	// Possibly dsl::LuaInterface::newstate() rather than luaL_newstate()
+	CREATE_CALLABLE_CLASS_SIGNATURE(luaL_newstate, int, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x41\x0F\xB6\xF8\x0F\xB6\xF2\x48\x8B", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, char, char, int)
 
-		// lua c-functions
+// lua c-functions
 
-		// From src/lua.h
-		// Pseudo-indices
+// From src/lua.h
+// Pseudo-indices
 #define LUA_REGISTRYINDEX	(-10000)
 #define LUA_ENVIRONINDEX	(-10001)
 #define LUA_GLOBALSINDEX	(-10002)
 #define lua_upvalueindex(i)	(LUA_GLOBALSINDEX-(i))
 
-		// From src/lauxlib.h
+// From src/lauxlib.h
 #define LUA_NOREF       (-2)
 #define LUA_REFNIL      (-1)
 
-		// more bloody lua shit
-		// Thread status; 0 is OK
+// more bloody lua shit
+// Thread status; 0 is OK
 #define LUA_YIELD	1
 #define LUA_ERRRUN	2
 #define LUA_ERRSYNTAX	3
 #define LUA_ERRMEM	4
 #define LUA_ERRERR	5
-		// From src/lauxlib.h
-		// Extra error code for 'luaL_load'
+// From src/lauxlib.h
+// Extra error code for 'luaL_load'
 #define LUA_ERRFILE     (LUA_ERRERR+1)
 
-		// From src/lua.h
-		// Option for multiple returns in 'lua_pcall' and 'lua_call'
+// From src/lua.h
+// Option for multiple returns in 'lua_pcall' and 'lua_call'
 #define LUA_MULTRET	(-1)
 #define LUA_TNONE		(-1)
 #define LUA_TNIL		0
@@ -486,9 +486,9 @@ namespace pd2hook
 		}
 		*/
 #endif	// 0
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		//                                                         BLT Code                                                          //
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                         BLT Code                                                          //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	std::list<lua_State*> activeStates;
 	void add_active_state(lua_State* L)
@@ -619,7 +619,7 @@ namespace pd2hook
 		{
 			directories = Util::GetDirectoryContents(dir, files);
 		}
-		catch (int)
+		catch (...)
 		{
 			lua_pushboolean(L, false);
 			return 1;
