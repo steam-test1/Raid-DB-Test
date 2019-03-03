@@ -619,10 +619,8 @@ namespace pd2hook
 		{
 			directories = Util::GetDirectoryContents(dir, files);
 		}
-		catch (int unused)
+		catch (int)
 		{
-			// Okay, okay - now shut up, compiler
-			(void)unused;
 			lua_pushboolean(L, false);
 			return 1;
 		}
