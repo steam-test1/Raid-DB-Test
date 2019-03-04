@@ -65,7 +65,7 @@ namespace pd2hook
 	CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_loadstring, int, "\x48\x83\xEC\x48\x48\x89\x54\x24\x30\x48\x83\xC8\xFF\x0F\x1F\x00", "xxxxxxxxxxxxxxxx", 0, lua_State*, const char*)
 	//CREATE_CALLABLE_SIGNATURE(lua_load, int, "\x8B\x4C\x24\x10\x33\xD2\x83\xEC\x18\x3B\xCA", "xxxxxxxxxxx", 0, lua_State*, lua_Reader, void*, const char*)
 	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_getfield, void, "\x48\x89\x5C\x24\x10\x57\x48\x83\xEC\x20\x4D\x8B\xD0\x48\x8B\xD9", "xxxxxxxxxxxxxxxx", 0, lua_State*, int, const char*)
-	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_setfield, void, "\x48\x89\x5C\x24\x08\x57\x48\x83\xEC\x20\x4D\x8B\xD0\x48\x8B\xD9", "xxxxxxxxxxxxxxxx", 0, lua_State*, int, const char*)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_setfield, int, "\x48\x89\x5C\x24\x08\x57\x48\x83\xEC\x20\x4D\x8B\xD0\x48\x8B\xD9", "xxxxxxxxxxxxxxxx", 0, lua_State*, int, const char*)
 	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_createtable, void, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x4C\x8B\x49\x10\x41\x8B\xF8\x8B\xF2", "xxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int, int)
 	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_insert, void, "\x4C\x8B\xC9\x85\xD2\x7E\x24\x8D\x42\xFF\x48\x63\xD0\x48\x8B\x41", "xxxxxxxxxxxxxxxx", 0, lua_State*, int)
 	//CREATE_NORMAL_CALLABLE_SIGNATURE(lua_replace, void, "\x56\x57\x8B\x7C\x24\x10\x81\xFF\xEE\xD8\xFF\xFF\x75\x16\x8B\x4C\x24\x0C\x5F\x8B\x41\x14\x8D\x71\x14\x8B\x40\xF8\x83\x06\xF8\x89", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int)
@@ -345,7 +345,7 @@ namespace pd2hook
 		};
 	};
 
-	static void* orig_dsl_db_add_members = nullptr;
+	static dsl_db_add_membersptr orig_dsl_db_add_members = nullptr;
 	static try_open_t orig_dsl_db_try_open_1 = nullptr;
 	static try_open_t orig_dsl_db_try_open_2 = nullptr;
 	static try_open_t orig_dsl_db_try_open_3 = nullptr;
@@ -363,15 +363,11 @@ namespace pd2hook
 	// When the members are being added to the DB table, add our own in
 	static void dt_dsl_db_add_members(lua_State* L)
 	{
-		ChkHookRes(MH_DisableHook(dsl_db_add_members), "failed to disable hook for dsl_db_add_members");
-		ChkHookRes(MH_RemoveHook(dsl_db_add_members), "failed to remove hook for dsl_db_add_members");
-
 		// Make sure we do ours first, so they get overwritten if the basegame
 		// implements them in the future
 		lapi::assets::setup(L);
 
-		dsl_db_add_members(L);
-		dsl_db_add_members = nullptr;
+		orig_dsl_db_add_members(L);
 	}
 
 	// A generic hook function
@@ -434,6 +430,7 @@ namespace pd2hook
 
 	void init_asset_hook()
 	{
+		MessageBoxA(nullptr, "DEBUG ME", "DEBUG ME", MB_OK);
 		/* HARDCODE FOR TEST ONLY */
 		// TODO: find a signature
 		dsl_fss_open = (dsl_fss_openptr)0x00000001405B4200; // _ZNK3dsl15FileSystemStack4openERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE
@@ -444,7 +441,7 @@ namespace pd2hook
 		dsl_db_try_open_4 = (dsl_db_try_open_4ptr)0x00000001401AF8D0; // _ZN3dsl2DB8try_openINS_21PropertyMatchResolverEEENS_7ArchiveENS_8idstringES4_RKT_RKNS_9TransportE
 		dsl_db_try_open_5 = (dsl_db_try_open_5ptr)0x00000001401D60B0; // _ZN3dsl2DB26try_open_from_bottom_layerIFiRKNS_7SortMapINS_5DBExt3KeyEjNSt3__14lessIS4_EENS_9AllocatorEEEiiEEENS_7ArchiveENS_8idstringESE_RKT_RKNS_9TransportE
 
-		ChkHookRes(MH_CreateHook(dsl_db_add_members, dt_dsl_db_add_members, &orig_dsl_db_add_members), "failed to create hook for dsl_db_add_members");
+		ChkHookRes(MH_CreateHook(dsl_db_add_members, dt_dsl_db_add_members, (void**)&orig_dsl_db_add_members), "failed to create hook for dsl_db_add_members");
 		ChkHookRes(MH_EnableHook(dsl_db_add_members), "failed to enable hook for dsl_db_add_members");
 
 		ChkHookRes(MH_CreateHook(dsl_db_try_open_1, dt_dsl_db_try_open_1, (void**)&orig_dsl_db_try_open_1), "failed to create hook for dsl_db_try_open_1");
