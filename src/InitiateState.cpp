@@ -37,7 +37,6 @@ namespace pd2hook
 	// Functions to be called by the debuger in specific events
 	typedef void(*lua_Hook) (lua_State* L, lua_Debug* ar);
 
-
 	// From src/luaconf.h
 #define LUA_NUMBER		double
 
@@ -89,12 +88,12 @@ namespace pd2hook
 
 	// luaI_openlib() is really luaL_openlib(), see lauxlib.h in Lua 5.1's source code
 	CREATE_NORMAL_CALLABLE_SIGNATURE(luaI_openlib, void, "\x48\x89\x5C\x24\x18\x55\x56\x41\x56\x48\x83\xEC\x20\x48\x8B\x41", "xxxxxxxxxxxxxxxx", 0, lua_State*, const char*, const luaL_Reg*, int)
-	CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_ref, int, "\x48\x89\x5C\x24\x20\x57\x48\x83\xEC\x20\x8D\x82\x0F\x27\x00\x00", "xxxxxxxxxxxxxxxx", 0, lua_State*, int);
-	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_rawgeti, void, "\x40\x53\x48\x83\xEC\x20\x4D\x63\xD0\x48\x8B\xD9\xE8\x00\x00\x00\x00\x48\x8B\x08\x48\xBA\xFF\xFF", "xxxxxxxxxxxxx????xxxxxxx", 0, lua_State*, int, int);
-	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_rawseti, void, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x4D\x63\xD0\x48\x8B\xD9\xE8", "xxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int, int);
-	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_type, int, "\x48\x83\xEC\x28\x4C\x8B\xD1\xE8\x00\x00\x00\x00\x48\x8B\x08\x4C", "xxxxxxxx????xxxx", 0, lua_State*, int);
-	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_typename, const char*, "\x48\x8D\x00\x00\x00\x00\x00\x48\x63\xC2\x48\x8B\x04\xC1\xC3\xCC", "xx?????xxxxxxxxx", 0, lua_State*, int);
-	CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_unref, void, "\x45\x85\xC0\x0F\x88\x00\x00\x00\x00\x48\x89\x5C\x24\x08\x48\x89", "xxxxx????xxxxxxx", 0, lua_State*, int, int);
+	CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_ref, int, "\x48\x89\x5C\x24\x20\x57\x48\x83\xEC\x20\x8D\x82\x0F\x27\x00\x00", "xxxxxxxxxxxxxxxx", 0, lua_State*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_rawgeti, void, "\x40\x53\x48\x83\xEC\x20\x4D\x63\xD0\x48\x8B\xD9\xE8\x00\x00\x00\x00\x48\x8B\x08\x48\xBA\xFF\xFF", "xxxxxxxxxxxxx????xxxxxxx", 0, lua_State*, int, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_rawseti, void, "\x48\x89\x5C\x24\x08\x48\x89\x74\x24\x10\x57\x48\x83\xEC\x20\x4D\x63\xD0\x48\x8B\xD9\xE8", "xxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_type, int, "\x48\x83\xEC\x28\x4C\x8B\xD1\xE8\x00\x00\x00\x00\x48\x8B\x08\x4C", "xxxxxxxx????xxxx", 0, lua_State*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_typename, const char*, "\x48\x8D\x00\x00\x00\x00\x00\x48\x63\xC2\x48\x8B\x04\xC1\xC3\xCC", "xx?????xxxxxxxxx", 0, lua_State*, int)
+	CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_unref, void, "\x45\x85\xC0\x0F\x88\x00\x00\x00\x00\x48\x89\x5C\x24\x08\x48\x89", "xxxxx????xxxxxxx", 0, lua_State*, int, int)
 	// Replacing the now-extensively-inlined do_game_update() hook with one applied on Application::update() instead
 	CREATE_CALLABLE_CLASS_SIGNATURE(application_update, void*, "\x48\x83\xEC\x28\x8B\x05\x00\x00\x00\x00\xA8\x01\x0F\x85", "xxxxxx????xxxx", 0)
 	// Possibly dsl::LuaInterface::newstate() rather than luaL_newstate()
@@ -430,7 +429,6 @@ namespace pd2hook
 
 	void init_asset_hook()
 	{
-		MessageBoxA(nullptr, "DEBUG ME", "DEBUG ME", MB_OK);
 		/* HARDCODE FOR TEST ONLY */
 		// TODO: find a signature
 		dsl_fss_open = (dsl_fss_openptr)0x00000001405B4200; // _ZNK3dsl15FileSystemStack4openERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE
@@ -548,7 +546,7 @@ namespace pd2hook
 		}
 	}
 
-	void lua_newcall(lua_State* L, int args, int returns){
+	void lua_newcall(lua_State* L, int args, int returns) {
 		// TODO: Optimize this to avoid incurring global table lookup costs whenever a function is called
 		// https://stackoverflow.com/questions/30021904/lua-set-default-error-handler/30022216#30022216
 		lua_getglobal(L, "debug");
@@ -581,7 +579,7 @@ namespace pd2hook
 		return 1;
 	}
 
-	int luaF_forcepcalls(lua_State* L){
+	int luaF_forcepcalls(lua_State* L) {
 		int n = lua_gettop(L);	// Number of arguments
 		if (n < 1) {
 			PD2HOOK_LOG_WARN("blt.forcepcalls(): Called with no arguments, ignoring request");
@@ -713,7 +711,6 @@ namespace pd2hook
 
 	int luaF_dofile(lua_State* L)
 	{
-
 		int n = lua_gettop(L);
 
 		size_t length = 0;
@@ -798,17 +795,17 @@ namespace pd2hook
 	}
 
 	int luaF_directoryhash(lua_State* L)
-	{ 
-		PD2HOOK_TRACE_FUNC; 
-		int n = lua_gettop(L); 
+	{
+		PD2HOOK_TRACE_FUNC;
+		int n = lua_gettop(L);
 
-		size_t length = 0; 
-		const char* filename = lua_tolstring(L, 1, &length); 
-		std::string hash = Util::GetDirectoryHash(filename); 
-		lua_pushlstring(L, hash.c_str(), hash.length()); 
+		size_t length = 0;
+		const char* filename = lua_tolstring(L, 1, &length);
+		std::string hash = Util::GetDirectoryHash(filename);
+		lua_pushlstring(L, hash.c_str(), hash.length());
 
-		return 1; 
-	} 
+		return 1;
+	}
 
 	int luaF_filehash(lua_State* L)
 	{
@@ -913,7 +910,6 @@ namespace pd2hook
 
 	void* application_update_new(void* thisptr)
 	{
-
 		// If someone has a better way of doing this, I'd like to know about it.
 		// I could save the this pointer?
 		// I'll check if it's even different at all later.
@@ -1022,17 +1018,16 @@ namespace pd2hook
 	FuncDetour* newStateDetour = nullptr;
 	FuncDetour* luaCloseDetour = nullptr;
 
-	void InitiateStates(){
-
+	void InitiateStates() {
 		main_thread_id = std::this_thread::get_id();
 
-		if (!InitializeMinHook()){
+		if (!InitializeMinHook()) {
 			printf("Critical Error: MinHook library failed to initialize\n");
 		}
 
 		SignatureSearch::Search();
 
-		init_asset_hook(); // Implement DB::create_entry 
+		init_asset_hook(); // Implement DB::create_entry
 
 		gameUpdateDetour = new FuncDetour(application_update, application_update_new);
 		application_update = reinterpret_cast<application_updateptr>(gameUpdateDetour->GetTrampoline());
@@ -1053,8 +1048,7 @@ namespace pd2hook
 		}
 	}
 
-
-	void DestroyStates(){
+	void DestroyStates() {
 		// Okay... let's not do that.
 		// I don't want to keep this in memory, but it CRASHES THE SHIT OUT if you delete this after all is said and done.
 		// if (gbl_mConsole) delete gbl_mConsole;
@@ -1065,7 +1059,7 @@ namespace pd2hook
 		if (luaCloseDetour) delete luaCloseDetour;
 		if (gbl_mConsole) delete gbl_mConsole;
 
-		destroy_asset_hook(); // Implement DB::create_entry 
+		destroy_asset_hook(); // Implement DB::create_entry
 		UninitializeMinHook();
 
 		HTTPManager::Destroy(); // exit crash fix
