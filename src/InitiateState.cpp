@@ -211,6 +211,8 @@ namespace pd2hook
 
 	CREATE_NORMAL_CALLABLE_SIGNATURE(luaL_error, int, "\x48\x89\x54\x24\x10\x4C\x89\x44\x24\x18\x4C\x89\x4C\x24\x20\x53\x48\x83\xEC\x20\x4C\x8D\x44\x24\x40\x48\x8B", "xxxxxxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, const char*, ...)
 	CREATE_NORMAL_CALLABLE_SIGNATURE(lua_touserdata, void*, "\x48\x83\xEC\x28\xE8\x00\x00\x00\x00\x48\x8B\x00\x48\x8B\xC8\x48\xC1\xF9\x2F\x83\xF9\xF3\x75\x16\x48\xB9\xFF\xFF\xFF\xFF\xFF\x7F", "xxxxx????xxxxxxxxxxxxxxxxxxxxxxx", 0, lua_State*, int)
+
+	// TODO: FIXME: actually find signatures for these (these arent working)
 	CREATE_NORMAL_CALLABLE_SIGNATURE(dsl_db_add_members, void, "\x48\x63\xC2\x48\x8B\x51\x28\x4C\x8B\xD1\x48\xC1\xE0\x03\x4C\x8B", "xxxxxxxxxxxxxxxx", 0, lua_State*)
 	CREATE_NORMAL_CALLABLE_SIGNATURE(dsl_fss_open, int, "\x48\x8B\xC4\x55\x41\x56\x41\x57\x48\x8B\xEC\x48\x81\xEC\x80\x00\x00\x00\x48\xC7\x45\xB8\xFE\xFF\xFF\xFF\x48\x89\x58\x08\x48\x89", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", 0, void*, void**, void*)
 	CREATE_NORMAL_CALLABLE_SIGNATURE(dsl_db_try_open_1, void*, "\x48\x8B\x41\x28\x48\x2B\x41\x20\x48\xC1\xF8\x03\xC3", "xxxxxxxxxxxxx", 0, void* target, DB* db, idstring* ext, idstring* name, void* misc_object, void* transport)
@@ -430,7 +432,7 @@ namespace pd2hook
 	void init_asset_hook()
 	{
 		/* HARDCODE FOR TEST ONLY */
-		// TODO: find a signature
+		// TODO: FIXME: find a signature, and remove these hardcoded addresses
 		dsl_fss_open = (dsl_fss_openptr)0x00000001405B4200; // _ZNK3dsl15FileSystemStack4openERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE
 		dsl_db_add_members = (dsl_db_add_membersptr)0x000000014063F800; // _ZN3dsl6MainDB11add_membersEP9lua_State
 		dsl_db_try_open_1 = (dsl_db_try_open_1ptr)0x0000000140025370; // _ZN3dsl2DB8try_openIFiRKNS_7SortMapINS_5DBExt3KeyEjNSt3__14lessIS4_EENS_9AllocatorEEEiiEEENS_7ArchiveENS_8idstringESE_RKT_RKNS_9TransportE
